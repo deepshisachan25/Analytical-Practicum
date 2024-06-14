@@ -1,18 +1,18 @@
-###*****************North Point Software List Company*********************************************
+### *****************North Point Software List Company*********************************************
+##reading all packages from library.
 library(ggplot2)
 library(dplyr)
 library(GGally)
 library(gains)
 library(forecast)
 library(MASS)
+library(purrr)
 North_Point_List<- read.csv("C:/Users/deeps/OneDrive/Documents/WEBSTER/Analytics Practicum/North Point Project/North-Point List.csv")
 dim(North_Point_List)
 class(North_Point_List)
 head(North_Point_List)
 tail(North_Point_List)
 names(North_Point_List)
-
-library(purrr)
 str(North_Point_List)
 
 # We can calculate how many NAs there are in each variable by using the map() in the purrr package
@@ -60,7 +60,7 @@ plot(plot_density)
 
 colnames(North_Point_List)
 
-##### Data Preparation
+#####*************Data Preparation************
 
 ###Here In a specific case, I am setting spending value as 0 when purchase was 0.
 North_Point_List <- within(North_Point_List, Spending[Spending == 1 & Purchase == 0] <- 0)
@@ -124,8 +124,7 @@ prop.table(table(train.df$Purchase)) [2]*100
 prop.table(table(valid.df$Purchase))  [2]*100
 prop.table(table(holdout.df$Purchase))[2]*100
 
-#####****************Logistic Regression********************
-###**********Fitting Logistic Regression*********************
+### Fitting Logistic Regression*********************
 library(caret)
 logistic.regression <- glm(Purchase ~ .-Spending ,data = train.df, family="binomial")
 summary(logistic.regression)
