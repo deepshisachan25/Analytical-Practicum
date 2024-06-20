@@ -159,18 +159,24 @@ Goal: Can find that Freq, last_update_days_ago, US and Address_is_res are import
 
 Model performance was checked on validation dataset for both purchase and spending outcome variable. Based on the classification models which was built for Purchase, the Logistic regression is the best model among all classification models because it gave the highest value of Sensitivity, Specificity and Accuracy of the Logistic regression model.
 For Purchase Outcome Variable (Categorical)
- 	Accuracy	Sensitivity	Specificity
-Logistic Regression	0.7929	0.7383	0.8516
-Classification Tree	0.77	0.7548	0.7864
-Naïve Bayes	0.7286	0.6612	0.8012
-Random Forest	0.7929	0.7548	0.8338
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/b25017e7-90c2-43fe-b0d9-ca74fb432b31)
+Decision: Seeing the performance of the model on validation set can find the logistic model is working good in classifying customer as purchaser or non-purchaser as it is giving a low Misclassification rate = 0.211. Which also tells us that logistic regression model can predict more accurately whether a customer will be a purchaser or not. 
 
-#### Decision:
-Seeing the performance of the model on validation set can find the logistic model is working good in classifying customer as purchaser or non-purchaser as it is giving a low Misclassification rate = 0.211. Which also tells us that logistic regression model can predict more accurately whether a customer will be a purchaser or not. 
-
-#### 
 For Spending Outcome Variable, Model Evaluation is done on validation dataset based on the MAE, RMSE and correlation between actual and predicted value of spending. Seeing the accuracy measures like MAE & RMSE which is comparatively lower than other model and correlation between actual and predicted value is highest than other, so stepwise regression model was selected as it works best for predicting Spending amount by a customer.
- Accuracy	MAE	RMSE
-Linear Regression	100.546	167.2498
-Stepwise Regression	99.15656	165.6397
-Regression Tree	101.7578	181.0081
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/634ebb92-1561-48f6-bb47-a91374060606)
+
+#### Holdout Accuracy of Selected Models
+After checking the model performance on validation dataset for both purchase and spending outcome variable and selected the best model for predicting Purchase and Spending. Now, will compute accuracy of selected model - Logistic Regression and stepwise models on holdout set. 
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/de5a6ecd-b2a5-457e-80be-1a4132396ffc)
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/3cc361ae-d6f9-47de-88e9-c5b5030ebc32)
+
+Using these selected models, we can identify the customer who will not buy the product. So, this information will be highly useful as business will not target that group of customers (by sending email) who will not buy the product and those who will buy the gaming product business can predict the spending amount that purchaser will spend on product.
+Logistic Regression & Linear Regression is easy to explain to business as well because the output of these models is a mathematical equation and the coefficients for each of the variables provide the size and impact (positive and negative) on the outcome variables. Stepwise model decreases the variables and keep only important variable that make more impact on linear regression model, overall making it less complicated. So, the stepwise selection reduced the complexity of the model without compromising its accuracy. 
+
+A new column was added as “Adjusted_Prob_Purchase” by multiplying each case predicted probability by 0.1065 which is an original purchase rate to adjust for oversampling the purchase. Then will multiply adjusted purchase probability to spending predicted value to get expected spending done by the customer.
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/318882ec-6831-4899-8267-52e4ef5987b1)
+Then calculated the sum of expected spending for holdout dataset which has over 500 records & will divide by 500 to get expected spending per customer (mean). To predict overall profit on whole customer, multiplied 180,000 on individual expected spending. Will get an estimate total of 1733486. Since our expense per customer in mailing, printing, etc. goes around $2. For overall 180000 customers, expense will be 360000. By subtracting 360,000 from 1,733,486 will get Gross profit of $ 1,373,486. Seeing this value, data analyst can tell the company that this gross profit is based on this assumption that sample data resembles overall data.
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/20e86546-ecfe-4647-a029-32f0fe28e5e6)
+
+#### Gross profit estimation: 
+Estimated gross profit will be $ 1,373,486. 
