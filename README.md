@@ -179,4 +179,9 @@ Then calculated the sum of expected spending for holdout dataset which has over 
 ![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/20e86546-ecfe-4647-a029-32f0fe28e5e6)
 
 #### Gross profit estimation: 
-Estimated gross profit will be $ 1,373,486. 
+Estimated gross profit will be $ 1,373,486. This tells that the firm could expect gross profit of $ 1,373,486 from the remaining 180,000 customers by selecting customer lists randomly from the pool. 
+
+#### Recommendation:
+Instead of pulling 180,000 customers in one go, business can keep picking batches of 20,000 and improve the model performance based on response rate every time they observe which will help them in picking good customer list. Hence, North point Company using predictive modelling can maximize its profit by targeting potential customers by sending emails and based on response rate can modify their models and pick good customer list. 
+![image](https://github.com/deepshisachan25/Analytical-Practicum/assets/170371796/b93fa662-a5d7-4665-9be1-d69b4acc60d8)
+
