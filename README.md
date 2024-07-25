@@ -1,5 +1,4 @@
-# Analytical-Practicum- Machine Learning
-## North Point Software Listing Company
+# North Point Software Listing Company
 ### Introduction
 North-Point Software Production Company, specializing in games and educational software, joined a consortium to expand its customer base. The consortium offers access to over 5 million potential customers, with North-Point contributing 200,000 names. To evaluate this collaboration, North-Point conducted a test by randomly selecting 20,000 names, yielding 1,065 customers and a 5.3% response rate.
 
